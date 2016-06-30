@@ -4,18 +4,35 @@
     <title>Tic Tac Toe!</title>
     <meta charset="utf-8">
     <link href="index.css" media="screen" rel="stylesheet" type="text/css">
+
   </head>
 
   <body>
     <h1>Tic Tac Toe</h1>
-    <div id="tic-tac-toe"></div>
+    <div id="tic-tac-toe">
+    </div>
+
+    <div id="top-row">
+      <button class="up-left boxes"></button>
+      <button class="up-middle boxes"></button>
+      <button class="up-right boxes"></button>
+    </div>
+    <div id="mid-row">
+      <button class="middle-left boxes"></button>
+      <button class="middle-middle boxes"></button>
+      <button class="middle-right boxes"></button>
+    </div>
+    <div id="low-row">
+      <button class="low-left boxes"></button>
+      <button class="low-middle boxes"></button>
+      <button class="low-right boxes"></button>
+    </div>
+
+
   </body>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script src="tic-tac-toe.js"></script>
   <script type="text/javascript">
-    $(document).on('ready', function() {
-      console.log('create and begin the game here!');
-    })
+    
   </script>
 </html>
-

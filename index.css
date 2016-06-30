@@ -1,3 +1,31 @@
 html {
-  
+  text-align: center;
+  font-size: 16px;
+  background-color: black;
+  color: #f26fd4;
+}
+
+body {
+  background-color: black;
+}
+
+.boxes {
+  width: 8rem;
+  height: 8rem;
+  margin: .5rem;
+  border: 3px solid #f26fd4;
+}
+
+.boxes:focus {
+  outline: none;
+}
+.boxes {
+  background-color: #43293d;
+}
+.boxes:hover {
+  background-color: #6f3a62;
+}
+.boxes:active, .boxes.active {
+  background-image: url('images/pinkX.png');
+  /*background-color: #f26fd4;*/
 }
