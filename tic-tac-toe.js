@@ -109,6 +109,7 @@ $(document).on('ready', function() {
   TicTacToe.prototype.resetGame = function () {
     ($(".up-right").removeClass("active-x") && $(".up-right").removeClass("active-o") && $(".up-middle").removeClass("active-x") && $(".up-middle").removeClass("active-o") && $(".up-left").removeClass("active-x") && $(".up-left").removeClass("active-o") && $(".middle-right").removeClass("active-x") && $(".middle-right").removeClass("active-o") && $(".middle-middle").removeClass("active-x") && $(".middle-middle").removeClass("active-o") && $(".middle-left").removeClass("active-x") && $(".middle-left").removeClass("active-o") && $(".low-right").removeClass("active-x") && $(".low-right").removeClass("active-o") && $(".low-middle").removeClass("active-x") && $(".low-middle").removeClass("active-o") && $(".low-left").removeClass("active-x") && $(".low-left").removeClass("active-o"))
     is_x = true
+    document.getElementById("winner").innerHTML = ""
     // console.log(document.getElementById("winner"));
   }
 })
