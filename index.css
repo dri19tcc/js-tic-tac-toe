@@ -33,3 +33,24 @@ body {
   background-image: url('images/pinkO.png');
   /*background-color: #f26fd4;*/
 }
+
+.reset {
+  width: 24rem;
+  height: 4rem;
+  margin: 4rem;
+  border: 3px solid #f26fd4;
+  color: #f26fd4;
+  font-size: 2rem;
+}
+.reset:focus {
+  outline: none;
+}
+.reset {
+  background-color: #43293d;
+}
+.reset:hover {
+  background-color: #6f3a62;
+}
+.reset:active, .reset.active {
+  background-color: #f26fd4;
+}

@@ -73,16 +73,43 @@ $(document).on('ready', function() {
       $('.low-right.boxes').addClass(is_x ? "active-x" : "active-o")
       is_x = !is_x
       ttt.checkWin()
-
     }
+  })
+
+  $(".game.reset").mousedown(function () {
+    ttt.resetGame()
   })
 
   function TicTacToe() {}
 
   TicTacToe.prototype.checkWin = function () {
-    if ($(".up-right").hasClass("active-x") && $(".middle-right").hasClass("active-x") && $(".low-right").hasClass("active-x") || $(".up-right").hasClass("active-o") && $(".middle-right").hasClass("active-o") && $(".low-right").hasClass("active-o")) {
-      document.getElementById("winner").innerHTML = "Someone Won!"
+    if ($(".up-right").hasClass("active-x") && $(".middle-right").hasClass("active-x") && $(".low-right").hasClass("active-x")) {
+      document.getElementById("winner").innerHTML = "X won!!!"
+    } else if ($(".up-right").hasClass("active-o") && $(".middle-right").hasClass("active-o") && $(".low-right").hasClass("active-o")) {
+      document.getElementById("winner").innerHTML = "O won!!!"
+    } else if ($(".up-middle").hasClass("active-x") && $(".middle-middle").hasClass("active-x") && $(".low-middle").hasClass("active-x")) {
+      document.getElementById("winner").innerHTML = "X won!!!"
+    } else if ($(".up-middle").hasClass("active-o") && $(".middle-middle").hasClass("active-o") && $(".low-middle").hasClass("active-o")) {
+      document.getElementById("winner").innerHTML = "O won!!!"
+    } else if ($(".up-left").hasClass("active-x") && $(".middle-left").hasClass("active-x") && $(".low-left").hasClass("active-x")) {
+      document.getElementById("winner").innerHTML = "X won!!!"
+    } else if ($(".up-left").hasClass("active-o") && $(".middle-left").hasClass("active-o") && $(".low-left").hasClass("active-o")) {
+      document.getElementById("winner").innerHTML = "O won!!!"
+    } else if ($(".up-left").hasClass("active-x") && $(".middle-middle").hasClass("active-x") && $(".low-right").hasClass("active-x")) {
+      document.getElementById("winner").innerHTML = "X won!!!"
+    } else if ($(".up-left").hasClass("active-o") && $(".middle-middle").hasClass("active-o") && $(".low-right").hasClass("active-o")) {
+      document.getElementById("winner").innerHTML = "O won!!!"
+    } else if ($(".up-right").hasClass("active-x") && $(".middle-middle").hasClass("active-x") && $(".low-left").hasClass("active-x")) {
+      document.getElementById("winner").innerHTML = "X won!!!"
+    } else if ($(".up-right").hasClass("active-o") && $(".middle-middle").hasClass("active-o") && $(".low-left").hasClass("active-o")) {
+      document.getElementById("winner").innerHTML = "O won!!!"
     }
+  }
+
+  TicTacToe.prototype.resetGame = function () {
+    ($(".up-right").removeClass("active-x") && $(".up-right").removeClass("active-o") && $(".up-middle").removeClass("active-x") && $(".up-middle").removeClass("active-o") && $(".up-left").removeClass("active-x") && $(".up-left").removeClass("active-o") && $(".middle-right").removeClass("active-x") && $(".middle-right").removeClass("active-o") && $(".middle-middle").removeClass("active-x") && $(".middle-middle").removeClass("active-o") && $(".middle-left").removeClass("active-x") && $(".middle-left").removeClass("active-o") && $(".low-right").removeClass("active-x") && $(".low-right").removeClass("active-o") && $(".low-middle").removeClass("active-x") && $(".low-middle").removeClass("active-o") && $(".low-left").removeClass("active-x") && $(".low-left").removeClass("active-o"))
+    is_x = true
+    // console.log(document.getElementById("winner"));
   }
 })
 
