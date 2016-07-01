@@ -102,6 +102,10 @@ $(document).on('ready', function() {
     ttt.resetGame()
   })
 
+  $(".game.new").mousedown(function () {
+    ttt.newGame()
+  })
+
   function TicTacToe() {}
 
   TicTacToe.prototype.checkWin = function () {
@@ -109,42 +113,82 @@ $(document).on('ready', function() {
       document.getElementById("winner").innerHTML = "X won!!!"
       xTotal += 1
       morePlays = false
+      ttt.updateScore()
     } else if ($(".up-right").hasClass("active-o") && $(".middle-right").hasClass("active-o") && $(".low-right").hasClass("active-o")) {
       document.getElementById("winner").innerHTML = "O won!!!"
       oTotal += 1
       morePlays = false
+      ttt.updateScore()
     } else if ($(".up-middle").hasClass("active-x") && $(".middle-middle").hasClass("active-x") && $(".low-middle").hasClass("active-x")) {
       document.getElementById("winner").innerHTML = "X won!!!"
       xTotal += 1
       morePlays = false
+      ttt.updateScore()
     } else if ($(".up-middle").hasClass("active-o") && $(".middle-middle").hasClass("active-o") && $(".low-middle").hasClass("active-o")) {
       document.getElementById("winner").innerHTML = "O won!!!"
       oTotal += 1
       morePlays = false
+      ttt.updateScore()
     } else if ($(".up-left").hasClass("active-x") && $(".middle-left").hasClass("active-x") && $(".low-left").hasClass("active-x")) {
       document.getElementById("winner").innerHTML = "X won!!!"
       xTotal += 1
       morePlays = false
+      ttt.updateScore()
     } else if ($(".up-left").hasClass("active-o") && $(".middle-left").hasClass("active-o") && $(".low-left").hasClass("active-o")) {
       document.getElementById("winner").innerHTML = "O won!!!"
       oTotal += 1
       morePlays = false
+      ttt.updateScore()
     } else if ($(".up-left").hasClass("active-x") && $(".middle-middle").hasClass("active-x") && $(".low-right").hasClass("active-x")) {
       document.getElementById("winner").innerHTML = "X won!!!"
       xTotal += 1
       morePlays = false
+      ttt.updateScore()
     } else if ($(".up-left").hasClass("active-o") && $(".middle-middle").hasClass("active-o") && $(".low-right").hasClass("active-o")) {
       document.getElementById("winner").innerHTML = "O won!!!"
       oTotal += 1
       morePlays = false
+      ttt.updateScore()
     } else if ($(".up-right").hasClass("active-x") && $(".middle-middle").hasClass("active-x") && $(".low-left").hasClass("active-x")) {
       document.getElementById("winner").innerHTML = "X won!!!"
       xTotal += 1
       morePlays = false
+      ttt.updateScore()
     } else if ($(".up-right").hasClass("active-o") && $(".middle-middle").hasClass("active-o") && $(".low-left").hasClass("active-o")) {
       document.getElementById("winner").innerHTML = "O won!!!"
       oTotal += 1
       morePlays = false
+      ttt.updateScore()
+    } else if ($(".up-right").hasClass("active-x") && $(".up-middle").hasClass("active-x") && $(".up-left").hasClass("active-x")) {
+      document.getElementById("winner").innerHTML = "X won!!!"
+      xTotal += 1
+      morePlays = false
+      ttt.updateScore()
+    } else if ($(".up-right").hasClass("active-o") && $(".up-middle").hasClass("active-o") && $(".up-left").hasClass("active-o")) {
+      document.getElementById("winner").innerHTML = "O won!!!"
+      oTotal += 1
+      morePlays = false
+      ttt.updateScore()
+    } else if ($(".middle-right").hasClass("active-x") && $(".middle-middle").hasClass("active-x") && $(".middle-left").hasClass("active-x")) {
+      document.getElementById("winner").innerHTML = "X won!!!"
+      xTotal += 1
+      morePlays = false
+      ttt.updateScore()
+    } else if ($(".middle-right").hasClass("active-o") && $(".middle-middle").hasClass("active-o") && $(".middle-left").hasClass("active-o")) {
+      document.getElementById("winner").innerHTML = "O won!!!"
+      oTotal += 1
+      morePlays = false
+      ttt.updateScore()
+    } else if ($(".low-right").hasClass("active-x") && $(".low-middle").hasClass("active-x") && $(".low-left").hasClass("active-x")) {
+      document.getElementById("winner").innerHTML = "X won!!!"
+      xTotal += 1
+      morePlays = false
+      ttt.updateScore()
+    } else if ($(".low-right").hasClass("active-o") && $(".low-middle").hasClass("active-o") && $(".low-left").hasClass("active-o")) {
+      document.getElementById("winner").innerHTML = "O won!!!"
+      oTotal += 1
+      morePlays = false
+      ttt.updateScore()
     }
   }
 
@@ -153,13 +197,26 @@ $(document).on('ready', function() {
     is_x = true
     morePlays = true
     document.getElementById("winner").innerHTML = ""
-    // console.log(document.getElementById("winner"));
+  }
+
+  TicTacToe.prototype.newGame = function () {
+    ($(".up-right").removeClass("active-x") && $(".up-right").removeClass("active-o") && $(".up-middle").removeClass("active-x") && $(".up-middle").removeClass("active-o") && $(".up-left").removeClass("active-x") && $(".up-left").removeClass("active-o") && $(".middle-right").removeClass("active-x") && $(".middle-right").removeClass("active-o") && $(".middle-middle").removeClass("active-x") && $(".middle-middle").removeClass("active-o") && $(".middle-left").removeClass("active-x") && $(".middle-left").removeClass("active-o") && $(".low-right").removeClass("active-x") && $(".low-right").removeClass("active-o") && $(".low-middle").removeClass("active-x") && $(".low-middle").removeClass("active-o") && $(".low-left").removeClass("active-x") && $(".low-left").removeClass("active-o"))
+    is_x = true
+    morePlays = true
+    document.getElementById("winner").innerHTML = ""
+    xTotal = 0
+    oTotal = 0
+    ttt.updateScore()
   }
 
   TicTacToe.prototype.checkDraw = function () {
     if (counter == 9) {
-      // console.log(counter);
       document.getElementById("winner").innerHTML = "It's a Draw"
     }
+  }
+
+  TicTacToe.prototype.updateScore = function () {
+    $('.leftScore').html(xTotal);
+    $('.rightScore').html(oTotal);
   }
 })
