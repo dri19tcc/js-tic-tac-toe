@@ -25,7 +25,11 @@ body {
 .boxes:hover {
   background-color: #6f3a62;
 }
-.boxes:active, .boxes.active {
+.boxes.active-x {
   background-image: url('images/pinkX.png');
+  /*background-color: #f26fd4;*/
+}
+.boxes.active-o {
+  background-image: url('images/pinkO.png');
   /*background-color: #f26fd4;*/
 }
