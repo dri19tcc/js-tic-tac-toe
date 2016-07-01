@@ -3,12 +3,15 @@ $(document).on('ready', function() {
 
   var ttt = new TicTacToe()
   var is_x = true
+  var counter = 0
 
   $('.up-left.boxes').mousedown(function () {
     if (!$(this).hasClass("active-x") && !$(this).hasClass("active-o")) {
       $('.up-left.boxes').addClass(is_x ? "active-x" : "active-o")
       is_x = !is_x
+      counter += 1
       ttt.checkWin()
+      ttt.checkDraw()
     }
   })
 
@@ -16,7 +19,9 @@ $(document).on('ready', function() {
     if (!$(this).hasClass("active-x") && !$(this).hasClass("active-o")) {
       $('.middle-left.boxes').addClass(is_x ? "active-x" : "active-o")
       is_x = !is_x
+      counter += 1
       ttt.checkWin()
+      ttt.checkDraw()
     }
   })
 
@@ -24,7 +29,9 @@ $(document).on('ready', function() {
     if (!$(this).hasClass("active-x") && !$(this).hasClass("active-o")) {
       $('.low-left.boxes').addClass(is_x ? "active-x" : "active-o")
       is_x = !is_x
+      counter += 1
       ttt.checkWin()
+      ttt.checkDraw()
     }
   })
 
@@ -32,7 +39,9 @@ $(document).on('ready', function() {
     if (!$(this).hasClass("active-x") && !$(this).hasClass("active-o")) {
       $('.up-middle.boxes').addClass(is_x ? "active-x" : "active-o")
       is_x = !is_x
+      counter += 1
       ttt.checkWin()
+      ttt.checkDraw()
     }
   })
 
@@ -40,7 +49,9 @@ $(document).on('ready', function() {
     if (!$(this).hasClass("active-x") && !$(this).hasClass("active-o")) {
       $('.middle-middle.boxes').addClass(is_x ? "active-x" : "active-o")
       is_x = !is_x
+      counter += 1
       ttt.checkWin()
+      ttt.checkDraw()
     }
   })
 
@@ -48,7 +59,9 @@ $(document).on('ready', function() {
     if (!$(this).hasClass("active-x") && !$(this).hasClass("active-o")) {
       $('.low-middle.boxes').addClass(is_x ? "active-x" : "active-o")
       is_x = !is_x
+      counter += 1
       ttt.checkWin()
+      ttt.checkDraw()
     }
   })
 
@@ -56,7 +69,9 @@ $(document).on('ready', function() {
     if (!$(this).hasClass("active-x") && !$(this).hasClass("active-o")) {
       $('.up-right.boxes').addClass(is_x ? "active-x" : "active-o")
       is_x = !is_x
+      counter += 1
       ttt.checkWin()
+      ttt.checkDraw()
     }
   })
 
@@ -64,7 +79,9 @@ $(document).on('ready', function() {
     if (!$(this).hasClass("active-x") && !$(this).hasClass("active-o")) {
       $('.middle-right.boxes').addClass(is_x ? "active-x" : "active-o")
       is_x = !is_x
+      counter += 1
       ttt.checkWin()
+      ttt.checkDraw()
     }
   })
 
@@ -72,7 +89,9 @@ $(document).on('ready', function() {
     if (!$(this).hasClass("active-x") && !$(this).hasClass("active-o")) {
       $('.low-right.boxes').addClass(is_x ? "active-x" : "active-o")
       is_x = !is_x
+      counter += 1
       ttt.checkWin()
+      ttt.checkDraw()
     }
   })
 
@@ -111,6 +130,12 @@ $(document).on('ready', function() {
     is_x = true
     document.getElementById("winner").innerHTML = ""
     // console.log(document.getElementById("winner"));
+  }
+
+  TicTacToe.prototype.checkDraw = function () {
+    if (counter === 9) {
+      document.getElementById("winner").innerHTML = "It's a Draw"
+    }
   }
 })
 
