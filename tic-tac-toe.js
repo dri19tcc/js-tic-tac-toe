@@ -81,8 +81,7 @@ $(document).on('ready', function() {
 
   TicTacToe.prototype.checkWin = function () {
     if ($(".up-right").hasClass("active-x") && $(".middle-right").hasClass("active-x") && $(".low-right").hasClass("active-x") || $(".up-right").hasClass("active-o") && $(".middle-right").hasClass("active-o") && $(".low-right").hasClass("active-o")) {
-      alert("Someone Won!")
-      return true
+      document.getElementById("winner").innerHTML = "Someone Won!"
     }
   }
 })
