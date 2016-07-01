@@ -54,3 +54,16 @@ body {
 .reset:active, .reset.active {
   background-color: #f26fd4;
 }
+
+.leftX {
+  float: left;
+  margin: 5rem 5rem 1rem 5rem;
+  font-size: 3rem;
+  border-bottom: 3px solid #f26fd4;
+}
+.rightO {
+  float: right;
+  margin: 5rem 5rem 1rem 5rem;
+  font-size: 3rem;
+  border-bottom: 3px solid #f26fd4;
+}
