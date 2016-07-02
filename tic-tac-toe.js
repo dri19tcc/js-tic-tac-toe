@@ -8,89 +8,9 @@ $(document).on('ready', function() {
   var xTotal = 0
   var oTotal = 0
 
-  $('.up-left.boxes').mousedown(function () {
+  $('.boxes').mousedown(function (event) {
     if (!$(this).hasClass("active-x") && !$(this).hasClass("active-o") && morePlays === true)  {
-      $('.up-left.boxes').addClass(is_x ? "active-x" : "active-o")
-      is_x = !is_x
-      counter += 1
-      ttt.checkWin()
-      ttt.checkDraw()
-    }
-  })
-
-  $('.middle-left.boxes').mousedown(function () {
-    if (!$(this).hasClass("active-x") && !$(this).hasClass("active-o") && morePlays === true) {
-      $('.middle-left.boxes').addClass(is_x ? "active-x" : "active-o")
-      is_x = !is_x
-      counter += 1
-      ttt.checkWin()
-      ttt.checkDraw()
-    }
-  })
-
-  $('.low-left.boxes').mousedown(function () {
-    if (!$(this).hasClass("active-x") && !$(this).hasClass("active-o") && morePlays === true) {
-      $('.low-left.boxes').addClass(is_x ? "active-x" : "active-o")
-      is_x = !is_x
-      counter += 1
-      ttt.checkWin()
-      ttt.checkDraw()
-    }
-  })
-
-  $('.up-middle.boxes').mousedown(function () {
-    if (!$(this).hasClass("active-x") && !$(this).hasClass("active-o") && morePlays === true) {
-      $('.up-middle.boxes').addClass(is_x ? "active-x" : "active-o")
-      is_x = !is_x
-      counter += 1
-      ttt.checkWin()
-      ttt.checkDraw()
-    }
-  })
-
-  $('.middle-middle.boxes').mousedown(function () {
-    if (!$(this).hasClass("active-x") && !$(this).hasClass("active-o") && morePlays === true) {
-      $('.middle-middle.boxes').addClass(is_x ? "active-x" : "active-o")
-      is_x = !is_x
-      counter += 1
-      ttt.checkWin()
-      ttt.checkDraw()
-    }
-  })
-
-  $('.low-middle.boxes').mousedown(function () {
-    if (!$(this).hasClass("active-x") && !$(this).hasClass("active-o") && morePlays === true) {
-      $('.low-middle.boxes').addClass(is_x ? "active-x" : "active-o")
-      is_x = !is_x
-      counter += 1
-      ttt.checkWin()
-      ttt.checkDraw()
-    }
-  })
-
-  $('.up-right.boxes').mousedown(function () {
-    if (!$(this).hasClass("active-x") && !$(this).hasClass("active-o") && morePlays === true) {
-      $('.up-right.boxes').addClass(is_x ? "active-x" : "active-o")
-      is_x = !is_x
-      counter += 1
-      ttt.checkWin()
-      ttt.checkDraw()
-    }
-  })
-
-  $('.middle-right.boxes').mousedown(function () {
-    if (!$(this).hasClass("active-x") && !$(this).hasClass("active-o") && morePlays === true) {
-      $('.middle-right.boxes').addClass(is_x ? "active-x" : "active-o")
-      is_x = !is_x
-      counter += 1
-      ttt.checkWin()
-      ttt.checkDraw()
-    }
-  })
-
-  $('.low-right.boxes').mousedown(function () {
-    if (!$(this).hasClass("active-x") && !$(this).hasClass("active-o") && morePlays === true) {
-      $('.low-right.boxes').addClass(is_x ? "active-x" : "active-o")
+      $(this).addClass(is_x ? "active-x" : "active-o")
       is_x = !is_x
       counter += 1
       ttt.checkWin()
