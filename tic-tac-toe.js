@@ -19,11 +19,11 @@ $(document).on('ready', function() {
   })
 
   $(".game.reset").mousedown(function () {
-    ttt.resetGame()
+    ttt.newGame()
   })
 
   $(".game.new").mousedown(function () {
-    ttt.newGame()
+    ttt.newGame(true)
   })
 
   function TicTacToe() {}
@@ -64,23 +64,18 @@ $(document).on('ready', function() {
 
   }
 
-  TicTacToe.prototype.resetGame = function () {
+  TicTacToe.prototype.newGame = function (resetScores = false) {
     $(".boxes").removeClass("active-x").removeClass("active-o")
     is_x = true
     morePlays = true
     document.getElementById("winner").innerHTML = ""
-    counter = 0
-  }
-
-  TicTacToe.prototype.newGame = function () {
-    $(".boxes").removeClass("active-x").removeClass("active-o")
-    is_x = true
-    morePlays = true
-    document.getElementById("winner").innerHTML = ""
-    xTotal = 0
-    oTotal = 0
     counter = 0
     ttt.updateScore()
+    if (resetScores) {
+      xTotal = 0
+      oTotal = 0
+      ttt.updateScore()
+    }
   }
 
   TicTacToe.prototype.checkDraw = function () {
