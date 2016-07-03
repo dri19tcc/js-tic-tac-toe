@@ -29,6 +29,42 @@ $(document).on('ready', function() {
   function TicTacToe() {}
 
   TicTacToe.prototype.checkWin = function () {
+    var tx = $("#top-row .active-x").length === 3
+    var to = $("#top-row .active-o").length === 3
+    var mx = $("#mid-row .active-x").length === 3
+    var mo = $("#mid-row .active-o").length === 3
+    var bx = $("#low-row .active-x").length === 3
+    var bo = $("#low-row .active-o").length === 3
+
+    var lx = $(".left.active-x").length === 3
+    var lo = $(".left.active-o").length === 3
+    var cx = $(".center.active-x").length === 3
+    var co = $(".center.active-o").length === 3
+    var rx = $(".right.active-x").length === 3
+    var ro = $(".right.active-o").length === 3
+
+    var dlx = $(".diag1.active-x").length === 3
+    var dlo = $(".diag1.active-o").length === 3
+    var drx = $(".diag2.active-x").length === 3
+    var dro = $(".diag2.active-o").length === 3
+
+    if (tx || mx || bx || lx || cx || rx || dlx || drx) {
+      document.getElementById("winner").innerHTML = "X won!!!"
+      xTotal += 1
+      morePlays = false
+      ttt.updateScore()
+    }
+
+    if (to || mo || bo || lo || co || ro || dlo || dro) {
+      document.getElementById("winner").innerHTML = "O won!!!"
+      oTotal += 1
+      morePlays = false
+      ttt.updateScore()
+    }
+
+  }
+
+  TicTacToe.prototype.checkWin2 = function () {
     if ($(".up-right").hasClass("active-x") && $(".middle-right").hasClass("active-x") && $(".low-right").hasClass("active-x")) {
       document.getElementById("winner").innerHTML = "X won!!!"
       xTotal += 1
@@ -113,19 +149,21 @@ $(document).on('ready', function() {
   }
 
   TicTacToe.prototype.resetGame = function () {
-    ($(".up-right").removeClass("active-x") && $(".up-right").removeClass("active-o") && $(".up-middle").removeClass("active-x") && $(".up-middle").removeClass("active-o") && $(".up-left").removeClass("active-x") && $(".up-left").removeClass("active-o") && $(".middle-right").removeClass("active-x") && $(".middle-right").removeClass("active-o") && $(".middle-middle").removeClass("active-x") && $(".middle-middle").removeClass("active-o") && $(".middle-left").removeClass("active-x") && $(".middle-left").removeClass("active-o") && $(".low-right").removeClass("active-x") && $(".low-right").removeClass("active-o") && $(".low-middle").removeClass("active-x") && $(".low-middle").removeClass("active-o") && $(".low-left").removeClass("active-x") && $(".low-left").removeClass("active-o"))
+    $(".boxes").removeClass("active-x").removeClass("active-o")
     is_x = true
     morePlays = true
     document.getElementById("winner").innerHTML = ""
+    counter = 0
   }
 
   TicTacToe.prototype.newGame = function () {
-    ($(".up-right").removeClass("active-x") && $(".up-right").removeClass("active-o") && $(".up-middle").removeClass("active-x") && $(".up-middle").removeClass("active-o") && $(".up-left").removeClass("active-x") && $(".up-left").removeClass("active-o") && $(".middle-right").removeClass("active-x") && $(".middle-right").removeClass("active-o") && $(".middle-middle").removeClass("active-x") && $(".middle-middle").removeClass("active-o") && $(".middle-left").removeClass("active-x") && $(".middle-left").removeClass("active-o") && $(".low-right").removeClass("active-x") && $(".low-right").removeClass("active-o") && $(".low-middle").removeClass("active-x") && $(".low-middle").removeClass("active-o") && $(".low-left").removeClass("active-x") && $(".low-left").removeClass("active-o"))
+    $(".boxes").removeClass("active-x").removeClass("active-o")
     is_x = true
     morePlays = true
     document.getElementById("winner").innerHTML = ""
     xTotal = 0
     oTotal = 0
+    counter = 0
     ttt.updateScore()
   }
 
