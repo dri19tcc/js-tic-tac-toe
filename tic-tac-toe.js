@@ -14,7 +14,6 @@ $(document).on('ready', function() {
       is_x = !is_x
       counter += 1
       ttt.checkWin()
-      ttt.checkDraw()
     }
   })
 
@@ -62,6 +61,10 @@ $(document).on('ready', function() {
       ttt.updateScore()
     }
 
+    if (counter === 9) {
+      document.getElementById("winner").innerHTML = "It's a Draw"
+    }
+
   }
 
   TicTacToe.prototype.newGame = function (resetScores = false) {
@@ -75,12 +78,6 @@ $(document).on('ready', function() {
       xTotal = 0
       oTotal = 0
       ttt.updateScore()
-    }
-  }
-
-  TicTacToe.prototype.checkDraw = function () {
-    if (counter == 9) {
-      document.getElementById("winner").innerHTML = "It's a Draw"
     }
   }
 
